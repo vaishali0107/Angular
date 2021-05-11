@@ -1,0 +1,9 @@
+<h1 class="col-xs-12" style="color:blue">Assignment 2 (Data Binding)</h1>
+<label class="col-xs-12">Username</label>
+<input type="text" class="form-control m3" [(ngModel)]="username">
+<h3 class="col-xs-12">{{username}}</h3>
+<button  class="btn btn-success" style="margin:1rem;" (click)="username=''" [disabled]="username === ''"> Reset Button</button>
+<h1 style="color:blue">Assignment 3(Directives)</h1>
+<button class="btn btn-primary" style="margin:1rem" (click)="onToggleDetails()">Display Details</button>
+<p *ngIf="details">Secret Password:tuna</p>
+<p *ngFor="let logitem of log; let i = index" [ngStyle] = "{backgroundColor:logitem>5?'blue':'white'}" [ngClass]="{color:logitem>5}">The index value of {{ logitem}} is {{i}}</p>

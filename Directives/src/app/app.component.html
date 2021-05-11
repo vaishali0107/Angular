@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="odd=true">Show Odd Numbers</button>
+      <div class="container" *ngIf="odd">
+        <div style="border:1px solid black;backgroundColor:black;" [ngClass]="{odd:i%2 != 0}" *ngFor="let i of oddArr" >{{i}}</div>
+      </div>
+    </div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="odd=false" >Show Even Numbers</button>
+<div class="container" *ngIf="!odd">
+  <div style="border:1px solid black;backgroundColor:red;"  *ngFor="let j of evenArr" [ngClass]="{even:j%2 == 0}" >{{j}}</div>
+</div>
+    </div>
+    <p appBasicHighLight>Style me with basic directive</p>
+    <p appBetterHighlight [defaultColor]="'orangered'" [highlightColor]="'pink'">Style me with better directive</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="6">Value is 6</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="20">Value is 20</p>
+        <p *ngSwitchDefault>Default</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

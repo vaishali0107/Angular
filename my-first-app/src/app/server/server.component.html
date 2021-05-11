@@ -1,0 +1,14 @@
+<h2>Welcome to Server Component</h2>
+<h2 [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{online:serverStatus==='online'}"
+*ngFor="let i of servers">Here the Server with Id {{serverId}} is {{serverStatus}}</h2>
+<!--<input type="text" class="form-control" (input)="onUpdateServerName($event)">-->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!--<h3>{{serverName}}</h3>
+<button class="btn btn-primary" [disabled]="setServer" (click)="onCreation()"> Add Server</button>
+<h2>{{serverCreation}}</h2>-->
+
+<button class="btn btn-primary" (click)="onCreation()" style="margin:1rem;" > Add Server</button>
+<h3 *ngIf="serverCreated; else noserver">Server was created and servername is {{serverName}}</h3>
+<ng-template #noserver>
+    <p>No server was created.</p>
+</ng-template>

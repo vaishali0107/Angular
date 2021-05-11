@@ -1,0 +1,11 @@
+<h4 style="color:blue">Add a New Server or blueprint!</h4>
+<label >Server Name</label>
+<!--<input type="text" placeholder="Add Servername" class="form-control" [(ngModel)]="newServerName" >-->
+<input type="text" placeholder="Add Servername" class="form-control" #serverNameInput><!--using Local Template references-->
+<label>Content</label>
+<!--<input type="text" placeholder="Add Content"  class="form-control" [(ngModel)]="newServerContent">-->
+<input type="text" placeholder="Add Content"  class="form-control" #serverContentInput>
+<br>
+<button  class="btn btn-primary" (click)="onAddServer(serverNameInput,serverContentInput)">Add Server</button>
+<button class="btn btn-primary" style="margin:0.5rem" (click)="onAddBlueprint(serverNameInput,serverContentInput)">Add Blueprint</button>
+

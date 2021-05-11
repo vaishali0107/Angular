@@ -1,0 +1,26 @@
+.first-div{
+    text-align: center;
+}
+section{
+    display: flex;
+    background-color: whitesmoke;
+    padding:2rem;
+    justify-content: space-evenly;
+    article{
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding:2rem;
+        justify-content: space-evenly;
+
+        button{
+            border-radius: 2px;
+            background-color: orangered;
+            color: white;
+            border:1px solid orangered;
+            height: 3rem;
+            width:15rem;
+            margin: 1.5rem;
+        }
+    }
+}

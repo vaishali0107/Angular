@@ -1,0 +1,18 @@
+<div class="container">
+  <app-cockpit (serverCreated)="onServerAdded($event)"  (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <button class="btn btn-danger" (click)="onDestroy()">Destroy</button>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+    <app-server-element *ngFor="let server of servers" [i]="server">
+      <p #paragraphContent>
+        <strong *ngIf="server.type==='server'" style="color:red">{{server.content}}</strong>
+        <em *ngIf="server.type==='blueprint'" style="color:blue">{{server.content}}</em>
+       </p>
+    </app-server-element>
+      </div>
+    </div>
+  </div>
+</div>
+
