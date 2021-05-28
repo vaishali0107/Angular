@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div formGroupName='userData'>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="form-control">
+                <div *ngIf="!signupForm.get('userData.username')?.valid  && signupForm.get('userData.username')?.touched" >
+                  <span class="text-danger" 
+                  *ngIf="signupForm.get('userData.username')?.errors?.required">Please enter valid username</span>
+                  <span class="text-danger" 
+                  *ngIf="signupForm.get('userData.username')?.errors?.minlength" >Username must have 3 characters</span>
+                  <span class="text-danger" 
+                  *ngIf="signupForm.get('userData.username')?.errors?.forbiddenName" >{{signupForm.get('userData.username')?.errors?.forbiddenName?.value}} Username not allowed</span>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="email">email</label>
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="form-control">
+                <span *ngIf="signupForm.get('userdata.email')?.invalid && signupForm.get('userData.email')?.touched" class="text-danger">Please enter valid email</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="text"
+                id="password"
+                formControlName="password"
+                class="form-control">
+            </div>
+          <div class="form-group">
+            <label for="confirmpassword"> Confirm Password</label>
+            <input
+              type="password"
+              formControlName="confirmpassword"
+              class="form-control">
+              <span *ngIf="signupForm.get('confirmpassword')?.errors?.mismatch" class="text-danger">Passwords do not match.</span>
+          </div>
+          <div class="radio" *ngFor="let gender of genders">
+            <label>
+              <input
+                type="radio"
+                formControlName="gender"
+                [value]="gender">{{ gender }}
+            </label>
+          </div>
+          <div>
+            <h4>Your Hobbies</h4>
+            <button class="btn btn-success" type="button" (click)="onAddHobby()">Add hobby</button>
+          </div>
+        <div  formArrayName="hobbies" *ngFor="let hobbycontrol of hobbies.controls; let i=index" class="form-group">
+            <input type="text" class="form-control" [formControlName]="i">
+        </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
